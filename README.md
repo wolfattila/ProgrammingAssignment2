@@ -1,3 +1,9 @@
+### My comments
+
+My main problem with this "homework" was that it was enough to change the "mean" everywhere to "solve" and the solution was ready. I had to wrote some comments. But this is really the homewokr? I tried to write different solution, but can not wrote as good like this. So totaly I hope I did it in good way.
+
+
+
 ### Introduction
 
 This second programming assignment will require you to write an R
