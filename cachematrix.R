@@ -12,18 +12,18 @@ cacheSolve(y1)
 ## So here we cache the origin Matrix
 
 makeCacheMatrix <- function(x = matrix()) {
-  m <- NULL
-  set <- function(y) {
-    x <<- y
-    m <<- NULL
+    m <- NULL
+    set <- function(y) {
+        x <<- y
+        m <<- NULL
   }
-  get <- function() x
-  setinv <- function(solve) m <<- solve
-  getinv <- function() m
+    get <- function() x
+    setinv <- function(solve) m <<- solve
+    getinv <- function() m
 ## create the cache of MAtrix with empty inverse
-  list(set = set, get = get,
-       setinv = setinv,
-       getinv = getinv)
+    list(set = set, get = get,
+         setinv = setinv,
+         getinv = getinv)
 }
 
 
@@ -31,17 +31,17 @@ makeCacheMatrix <- function(x = matrix()) {
 ## 2nd time print from cahce
 
 cacheSolve <- function(x, ...) {
-  m <- x$getinv()
+    m <- x$getinv()
 ## check if the inverse was cached before
-  if(!is.null(m)) {
-    message("getting cached data")
-    return(m)
-  }
-  data <- x$get()
-  m <- solve(data, ...)
+    if(!is.null(m)) {
+        message("getting cached data")
+        return(m)
+    }
+    data <- x$get()
+    m <- solve(data, ...)
 ## cache the inverse
-  x$setinv(m)
-  print(m)
+    x$setinv(m)
+    print(m)
 }
 
 
