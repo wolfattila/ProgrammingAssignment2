@@ -1,13 +1,15 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Here is the 3 command what I will have to use to test
+## first create a matrix, then cache the origin Matrix
+## and finaly run cache twice
 
 y <- matrix(c(1,3,6,0,5,1,8,6,5),3,3)
 y1<-makeCacheMatrix(y)
 cacheSolve(y1)
+cacheSolve(y1)
 
 
 
-## Write a short comment describing this function
+## So here we cache the origin Matrix
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -18,27 +20,28 @@ makeCacheMatrix <- function(x = matrix()) {
   get <- function() x
   setinv <- function(solve) m <<- solve
   getinv <- function() m
+## create the cache of MAtrix with empty inverse
   list(set = set, get = get,
        setinv = setinv,
        getinv = getinv)
 }
 
 
-## Write a short comment describing this function
+## for 1st tim eit save the invers, 
+## 2nd time print from cahce
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
   m <- x$getinv()
+## check if the inverse was cached before
   if(!is.null(m)) {
     message("getting cached data")
-    print(solve(m))
     return(m)
   }
   data <- x$get()
   m <- solve(data, ...)
+## cache the inverse
   x$setinv(m)
   print(m)
-  solve(m)
 }
 
 
